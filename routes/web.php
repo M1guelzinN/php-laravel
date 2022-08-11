@@ -15,8 +15,35 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PrincipalController@Principal');
 
-Route::get('/servico', 'ServicoController@Servico');
+Route::get('/produto', 'ProdutosController@Produto');
 
 Route::get('/contato', 'ContatoController@Contato');
 
 Route::get('/sobre-nos', 'SobreNosController@SobreNos');
+
+//app
+
+Route::prefix('/app') ->group( function(){
+  Route::get('/login', function(){
+    return 'tela de login';
+  });
+});
+
+
+// enviando parametros pela url
+// Route::get('/param/{nome}/{categoria}/{idade?}/{sex?}/', 
+//   function(
+//     string $nome = 'desconhecido',
+//     string $categoria = 'desconhecida',
+//     string $idade = 'sem idade',
+//     string $sexo = 'indeterminado'){
+//   echo "Aqui estamos: $nome, $categoria, $idade, $sexo";
+// });
+
+// Route::get('/param/{nome}/{categoria_id}', 
+//   function(
+//     string $nome = 'desconhecido',
+//     int $categoria_id = 1){
+//   echo "Aqui estamos: $nome e $categoria_id";
+// })  ->where('nome', '[A-Za-z]+')
+//     ->where('categoria_id', '[0-9]+');

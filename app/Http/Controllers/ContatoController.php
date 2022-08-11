@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ContatoController extends Controller
 {
     public function Contato(){
-        echo 'pagina de contato';
+        return view('site.contato');
     }
 }
 
