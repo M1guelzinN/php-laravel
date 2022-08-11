@@ -13,20 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PrincipalController@Principal');
+Route::get('/', 'PrincipalController@Principal')->name('site.index');
 
-Route::get('/produto', 'ProdutosController@Produto');
+Route::get('/produto', 'ProdutosController@Produto')->name('site.produto');
 
-Route::get('/contato', 'ContatoController@Contato');
+Route::get('/contato', 'ContatoController@Contato')->name('site.contato');
 
-Route::get('/sobre-nos', 'SobreNosController@SobreNos');
+Route::get('/sobre-nos', 'SobreNosController@SobreNos')->name('site.sobreNos');
 
 //app
 
 Route::prefix('/app') ->group( function(){
   Route::get('/login', function(){
-    return 'tela de login';
-  });
+    return 'tela de login';})->name('app.login');
+  Route::get('/fornecedores','FornecedoresController@fornecedores')->name('app.fornecedres');
+});
+
+// rota de fallback 
+Route::fallback( function(){
+  echo 'esta rota não foi encontrada. <a href='.route('site.index').'>clique para pagina principal</a>';
 });
 
 
