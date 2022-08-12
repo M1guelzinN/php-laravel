@@ -19,7 +19,7 @@ Route::get('/produto', 'ProdutosController@Produto')->name('site.produto');
 
 Route::get('/contato', 'ContatoController@Contato')->name('site.contato');
 
-Route::get('/sobre-nos', 'SobreNosController@SobreNos')->name('site.sobreNos');
+Route::get('/sobre-nos', 'SobreNosController@SobreNos')->name('site.sobrenos');
 
 //app
 
