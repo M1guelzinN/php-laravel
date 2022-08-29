@@ -15,7 +15,7 @@ class AlterFornecedoresNovas extends Migration
     {
         Schema::table('fornecedores', function (Blueprint $table) {
             $table->string('uf',2);
-            $table->string('email',2);
+            $table->string('email', 100);
 
         });
     }
