@@ -12,11 +12,12 @@
     <div class="informacao-pagina">
       <div class="contato-principal">
          
-      @component('site.layouts._components.form_contato', ['x' => 'valor recebido da variavel de contato'])
+      @component('site.layouts._components.form_contato', ['x' => 'valor recebido da variavel de contato', 'motivo_contatos' => $motivo_contatos])
       <p>após o envio aguarde a resposta de contato</p>
       <p>a resposta pode demorar até 24 horas. </p>
       @endcomponent
       
+     {{ print_r($motivo_contatos) }}
       </div>
     </div>  
   </div>

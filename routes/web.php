@@ -18,7 +18,7 @@ Route::get('/', 'PrincipalController@Principal')->name('site.index');
 Route::get('/produto', 'ProdutosController@Produto')->name('site.produto');
 
 Route::get('/contato', 'ContatoController@Contato')->name('site.contato');
-Route::post('/contato', 'ContatoController@Contato')->name('site.contato');
+Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
 
 Route::get('/sobre-nos', 'SobreNosController@SobreNos')->name('site.sobrenos');
 

@@ -31,7 +31,7 @@
 							<p>Caso tenha qualquer dúvida por favor entre em contato com nossa equipe pelo formulário abaixo.<p>
 
 							      
-      @component('site.layouts._components.form_contato', ['x' => 'valor recebido da variavel principal'])
+      @component('site.layouts._components.form_contato', ['x' => 'valor recebido da variavel principal', 'motivo_contatos' => $motivo_contatos])
 
       @endcomponent
 					</div>
