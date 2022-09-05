@@ -10,6 +10,7 @@ class ContatoController extends Controller
     public function Contato(Request $request){
 
         $motivo_contatos = [
+            '0' => 'Qual o motivo do contato?',
             '1' => 'Dúvida',
             '2' => 'Elogio',
             '3' => 'Reclamação'
@@ -34,14 +35,15 @@ class ContatoController extends Controller
         // $contato = new site_contato();
         // $contato->create($request->all());
         $request->validate([
-            'nome' => 'required|min:5 |max:40',
+            'nome' => 'required|min:5 |max:40 | unique:site_contatos',
             'telefone' => 'required',
-            'email' => 'required',
+            'email' => 'email',
             'motivo_contato' => 'required',
             'mensagem' => 'required',
         ]);
 
         site_contato::create($request->all());
+        return redirect()->route('site.index');
     }   
 }
 
