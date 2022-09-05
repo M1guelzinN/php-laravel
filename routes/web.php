@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::middleware(logAcessoMiddleware::class)
+//   ->get('/', 'PrincipalController@Principal')
+//   ->name('site.index');
 Route::get('/', 'PrincipalController@Principal')->name('site.index');
 
 Route::get('/produto', 'ProdutosController@Produto')->name('site.produto');
@@ -24,9 +27,10 @@ Route::get('/sobre-nos', 'SobreNosController@SobreNos')->name('site.sobrenos');
 
 //app
 
-Route::prefix('/app') ->group( function(){
+Route::middleware('autenticacao:ldap')->prefix('/app') ->group( function(){
+  
   Route::get('/login', function(){
-    return 'tela de login';})->name('app.login');
+    return 'tela de login';})->name('app.login')->middleware('log.acesso');
   Route::get('/fornecedores','FornecedoresController@fornecedores')->name('app.fornecedres');
 });
 

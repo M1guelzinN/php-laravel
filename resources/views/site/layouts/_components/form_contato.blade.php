@@ -17,21 +17,25 @@
     @foreach ( $motivo_contatos as $key => $motivo_contato)
         <option value="{{ $key }}" {{ old('motivo_contato') == $key ? 'selected' : ''}}> {{ $motivo_contato }}</option>
     @endforeach
+  {{ $errors->has('motivo_contato') ? $errors->first('motivo_contato') : '' }}
   </select>
   <br>
-  <textarea name='mensagem' class="borda-preta">{{ (old('mensagem') != '') ? old('mensagem') : 'Preencha e campo com sua mensagem' }}</textarea>
+  <textarea name='mensagem' class="borda-preta">
+    {{ (old('mensagem') != '') ? old('mensagem') : 'Preencha e campo com sua mensagem' }}
+  </textarea>
+    {{ $errors->has('mensagem') ? $errors->first('mensagem') : '' }}     
   <br>
   <button type="submit" class="borda-preta">ENVIAR</button>
 </form>
 
-@if( $errors->any())
+{{-- @if( $errors->any())
   <div style='position: absolute; top: 0; left: 0; width: 90%; background: red;'>
     @foreach ($errors->all() as $erro )
       {{  $erro }}
       <br>
     @endforeach
   </div>     
-@endif
+@endif --}}
 
 {{ $slot}}
 {{ $x}}

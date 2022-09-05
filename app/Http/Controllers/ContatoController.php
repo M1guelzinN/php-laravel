@@ -40,6 +40,12 @@ class ContatoController extends Controller
             'email' => 'email',
             'motivo_contato' => 'required',
             'mensagem' => 'required',
+        ],[
+            'required' => 'o campo :attribute é obrigatorio',
+            'email' => 'este email não é valido',
+            'nome.min' => 'este campo precisa de no minimo 3 caracteres e no maximo 40',
+            'nome.max' => 'este campo precisa de no minimo 3 caracteres e no maximo 40',
+            'nome.unique' => 'este usuario já existe',
         ]);
 
         site_contato::create($request->all());
