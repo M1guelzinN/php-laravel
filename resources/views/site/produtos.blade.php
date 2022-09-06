@@ -5,7 +5,6 @@
     <header>
       <ul>
         <li><a href="{{ route('site.index') }}">index</a></li>
-        <li><a href="{{ route('site.produto') }}">produtos</a></li>
         <li><a href="{{ route('site.contato') }}">contato</a></li>
         <li><a href="{{ route('site.sobrenos') }}">sobre nós</a></li>
       </ul>

@@ -15,15 +15,12 @@ class autenticacaoMiddleware
      */
     public function handle($request, Closure $next, $padrao)
     {
-        echo "$padrao <br>";
+        session_start();
 
-        if($padrao == 'ldap'){
-            echo 'tudo certo';
-        }
-        if(true){
+        if(isset($_SESSION['email']) && $_SESSION['email'] != ''){
             return $next($request);
         } else{
-            return Response('acesso negado');
+            return redirect()->route('site.login', ['erro' => 2]);
         }
 
     }

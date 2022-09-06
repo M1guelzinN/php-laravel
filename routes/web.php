@@ -16,22 +16,21 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware(logAcessoMiddleware::class)
 //   ->get('/', 'PrincipalController@Principal')
 //   ->name('site.index');
-Route::get('/', 'PrincipalController@Principal')->name('site.index');
 
-Route::get('/produto', 'ProdutosController@Produto')->name('site.produto');
+Route::get('/', 'PrincipalController@Principal')->name('site.index');
 
 Route::get('/contato', 'ContatoController@Contato')->name('site.contato');
 Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
 
 Route::get('/sobre-nos', 'SobreNosController@SobreNos')->name('site.sobrenos');
 
-//app
+Route::get('/login/{erro?}', 'loginController@index')->name('site.login')->middleware('log.acesso');
+Route::post('/login', 'loginController@autenticar')->name('site.login')->middleware('log.acesso');
 
-Route::middleware('autenticacao:ldap')->prefix('/app') ->group( function(){
-  
-  Route::get('/login', function(){
-    return 'tela de login';})->name('app.login')->middleware('log.acesso');
-  Route::get('/fornecedores','FornecedoresController@fornecedores')->name('app.fornecedres');
+//app
+Route::middleware('autenticacao:ldap')->prefix('/app')->group( function(){ 
+  Route::get('/fornecedores','FornecedoresController@fornecedores')->name('app.fornecedores');
+  Route::get('/produto', 'ProdutosController@Produto')->name('app.produto');
 });
 
 // rota de fallback 
