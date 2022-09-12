@@ -141,6 +141,16 @@
               margin-top: 30px;
               margin-left: 20px;
             }
+            
+            .tableCss{
+              border: 1px solid black;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            .tableCss > tr{
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
 
             .video {
               margin: 40px;
@@ -160,6 +170,12 @@
 
             .titulo-pagina {
               padding: 100px 0px 60px 0px;
+              background-color: #2a9ee2;
+              text-align: center;
+            }
+            .titulo-pagina2 {
+              padding: 80px 0px 30px 0px;
+              margin-bottom: 20px;
               background-color: #2a9ee2;
               text-align: center;
             }

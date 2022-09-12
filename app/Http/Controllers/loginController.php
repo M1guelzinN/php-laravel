@@ -20,6 +20,7 @@ class loginController extends Controller
 
         return view('site.login', ['titulo' => 'login', 'erro' => $erro]);
     }
+
     public function autenticar(Request $request){
         $regras = [
             'usuario' => 'email',
@@ -44,9 +45,14 @@ class loginController extends Controller
             $_SESSION['nome'] = $usuario->name;
             $_SESSION['email'] = $usuario->email;
 
-            return redirect()->route('app.fornecedores');
+            return redirect()->route('app.home');
         } else{
            return redirect()->route('site.login', ['erro' => 1]);
         }
+    }
+
+    public function sair(){
+        session_destroy();
+        return redirect()->route('site.index');
     }
 }

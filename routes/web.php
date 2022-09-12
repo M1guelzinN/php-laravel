@@ -29,7 +29,15 @@ Route::post('/login', 'loginController@autenticar')->name('site.login')->middlew
 
 //app
 Route::middleware('autenticacao:ldap')->prefix('/app')->group( function(){ 
-  Route::get('/fornecedores','FornecedoresController@fornecedores')->name('app.fornecedores');
+  Route::get('/home','homeController@index')->name('app.home');
+  Route::get('/sair','loginController@sair')->name('app.sair');
+  Route::get('/cliente','clienteController@index')->name('app.cliente');
+
+  Route::get('/fornecedor','FornecedoresController@index')->name('app.fornecedor');
+  Route::post('/fornecedor/listar','FornecedoresController@listar')->name('app.fornecedor.listar');
+  Route::get('/fornecedor/adicionar','FornecedoresController@adicionar')->name('app.fornecedor.adicionar');
+  Route::post('/fornecedor/adicionar','FornecedoresController@adicionar')->name('app.fornecedor.adicionar');
+
   Route::get('/produto', 'ProdutosController@Produto')->name('app.produto');
 });
 
