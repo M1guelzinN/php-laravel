@@ -32,11 +32,12 @@
           <td> {{ $i->site}} </td>
           <td> {{ $i->uf}} </td>
           <td> {{ $i->email}}</td>
-          <td> Excluir</td>
-          <td> Editar</td>
+          <td> <a href="{{ route('app.fornecedor.editar', $i->id) }}">Excluir</a></td>
+          <td> <a href="{{ route('app.fornecedor.editar', $i->id) }}">Editar</a></td>
         </tr>
     @endforeach
     </tbody>
+    {{ $fornecedores->appends($request)->links() }}  
     </div>
   </div>
 @endsection

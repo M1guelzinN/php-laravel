@@ -15,7 +15,7 @@
   </div>
 
   <div class='informacao-pagina'>
-    <div style="width: 30%; margin: auto;">
+    <div style="width: 100%; margin: auto;">
       <form method='post' action="{{ route('app.fornecedor.listar') }}">
       @csrf
         <input type=text name='nome' placeholder="Nome" value="{{ old('nome') }}" class="borda-preta">
