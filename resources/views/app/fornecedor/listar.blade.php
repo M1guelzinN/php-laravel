@@ -32,12 +32,16 @@
           <td> {{ $i->site}} </td>
           <td> {{ $i->uf}} </td>
           <td> {{ $i->email}}</td>
-          <td> <a href="{{ route('app.fornecedor.editar', $i->id) }}">Excluir</a></td>
+          <td> <a href="{{ route('app.fornecedor.excluir', $i->id) }}">Excluir</a></td>
           <td> <a href="{{ route('app.fornecedor.editar', $i->id) }}">Editar</a></td>
         </tr>
     @endforeach
     </tbody>
-    {{ $fornecedores->appends($request)->links() }}  
+    </table>
     </div>
+    <br>
+   <div> {{ $fornecedores->appends($request)->links() }}  </div>
+   <br>
+   <div> {{ $fornecedores->count() }} - registros de fornecedores do total de {{ $fornecedores->total() }}</div>
   </div>
 @endsection

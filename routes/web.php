@@ -37,11 +37,13 @@ Route::middleware('autenticacao:ldap')->prefix('/app')->group( function(){
   Route::get('/fornecedor/adicionar','FornecedoresController@adicionar')->name('app.fornecedor.adicionar');
   Route::get('/fornecedor/editar{id}/{msg?}','FornecedoresController@editar')->name('app.fornecedor.editar');
   Route::get('/fornecedor/listar','FornecedoresController@listar')->name('app.fornecedor.listar');
+  Route::get('/fornecedor/excluir{id}','FornecedoresController@excluir')->name('app.fornecedor.excluir');
 
   Route::post('/fornecedor/adicionar','FornecedoresController@adicionar')->name('app.fornecedor.adicionar');
   Route::post('/fornecedor/listar','FornecedoresController@listar')->name('app.fornecedor.listar');
 
-  Route::get('/produto', 'ProdutosController@Produto')->name('app.produto');
+  Route::get('/produtos', 'produtoController@index')->name('app.produto');
+  Route::resource('/produto', 'produtoController');  
 });
 
 // rota de fallback 

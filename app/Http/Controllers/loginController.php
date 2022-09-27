@@ -24,7 +24,7 @@ class loginController extends Controller
     public function autenticar(Request $request){
         $regras = [
             'usuario' => 'email',
-            'senha' => 'required|min:8'
+            'senha' => 'required|min:4'
         ];
         $feedback = [
             'senha.min' => 'este campo precisa de no minimo 8 caracteres', 
